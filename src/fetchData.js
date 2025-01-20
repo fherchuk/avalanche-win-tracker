@@ -1,4 +1,3 @@
-// fetchData.js
 async function fetchData(url) {
   const response = await fetch(url);
   if (!response.ok) {

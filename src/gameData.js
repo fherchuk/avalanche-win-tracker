@@ -1,4 +1,3 @@
-// gameData.js
 const { fetchData } = require("./fetchData");
 const { getTeam, getOpponent } = require("./teamData");
 

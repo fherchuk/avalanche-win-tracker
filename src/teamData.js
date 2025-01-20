@@ -1,4 +1,3 @@
-// teamData.js
 const { fetchData } = require("./fetchData");
 
 let fetchedTeamData;

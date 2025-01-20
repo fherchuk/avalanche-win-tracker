@@ -1,4 +1,3 @@
-// routes.js
 const path = require("path");
 const { fetchPrevGameData, fetchNextGameData } = require("./gameData");
 
@@ -17,7 +16,7 @@ function setupRoutes(app) {
         prevGameData,
         nextGameData,
       };
-      response.json({ responseData }); // Send JSON data
+      response.json({ responseData });
     } catch (error) {
       console.error("Error fetching game data:", error);
       response.status(500).send("Internal Server Error");

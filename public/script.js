@@ -6,11 +6,10 @@ fetch("/status")
     return response.json();
   })
   .then((data) => {
-    // Extract data from the response
     const { responseData } = data;
     const { prevGameData, nextGameData } = responseData;
 
-    // Update DOM elements with fetched data
+    // Update DOM 
     document.getElementById("nextGame").innerText = nextGameData.text;
     document.getElementById("result").innerText = prevGameData.resultString;
 
