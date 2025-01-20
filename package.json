@@ -1,15 +1,23 @@
 {
   "name": "hockey_stats",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple application for tracking hockey stats",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"No tests implemented yet\""
   },
-  "keywords": [],
+  "keywords": [ "hockey", "stats", "sports", "tracker" ],
   "author": "Rick Herchuk",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

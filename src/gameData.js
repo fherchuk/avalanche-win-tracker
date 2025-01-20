@@ -1,4 +1,3 @@
-// gameData.js
 const { fetchData } = require("./fetchData");
 const { getTeam, getOpponent } = require("./teamData");
 
@@ -17,35 +16,20 @@ const display = {
 };
 
 let fetchedScheduleData;
-const scheduleUrl =
-  "https://api-web.nhle.com/v1/club-schedule-season/COL/20232024";
+const scheduleUrl = getScheduleURL();
 
 async function getScheduleData(index) {
-  // If nullish, fetchData
   fetchedScheduleData ??= await fetchData(scheduleUrl);
-  // Find the index of the first future game
-  const gameIndex = fetchedScheduleData.games.findIndex(
-    (game) => game.gameState === index
-  );
-  const gameData =
-    gameIndex === -1
-      ? (() => {
-          let prevGameIndex = fetchedScheduleData.games.findIndex(
-            (game) => game.gameState === "FUT"
-          );
-          return prevGameIndex !== -1
-            ? fetchedScheduleData.games[prevGameIndex - 1]
-            : null;
-        })()
-      : fetchedScheduleData.games[gameIndex];
+  const gameIndex = fetchedScheduleData.games.findIndex((game) => game.gameState === index );
 
+    const gameData = gameIndex === -1 ? (() => {
+        let prevGameIndex = fetchedScheduleData.games.findIndex((game) => game.gameState === "FUT");
+        return prevGameIndex !== -1 ? fetchedScheduleData.games[prevGameIndex - 1] : null; })() : fetchedScheduleData.games[gameIndex];
   return gameData;
 }
 
 async function fetchPrevGameData() {
-  const game =
-    (await getScheduleData("LIVE")) || (await getScheduleData("OFF"));
-
+  const game = (await getScheduleData("LIVE")) || (await getScheduleData("OFF"));
   const status = getGameStatus(game);
   const opponent = await getOpponent(game);
   const opponentName = await getTeam(opponent.id);
@@ -124,6 +108,20 @@ function parseDate(dateStr) {
     .toLocaleDateString("en-US", options)
     .replace(day.toString(), day + suffix);
   return formattedDate;
+}
+
+function getScheduleURL() {
+    const baseURL = "https://api-web.nhle.com/v1/club-schedule-season/COL/";
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+
+    if (currentMonth < 8) {
+        return `${baseURL}${currentYear - 1}${currentYear}`;
+    } else {
+        return `${baseURL}${currentYear}${currentYear + 1}`;
+    }
+    
 }
 
 module.exports = { fetchPrevGameData, fetchNextGameData };
