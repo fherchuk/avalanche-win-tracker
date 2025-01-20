@@ -1,22 +1,105 @@
-# Node.js related
-node_modules/
-npm-debug.log
-yarn-error.log
-package-lock.json
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
-# Environment variables
-.env
-
-# IDE and text editor specific files
+# User-specific folders
+.vs/
 .vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
 
-# Logs
-logs/
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio Code workspace
+*.code-workspace
+
+# Build artifacts
+*.dll
+*.exe
+*.app
+*.so
+*.dylib
+*.lib
+*.pdb
+*.mdb
+
+# Other files and folders
+*_i.c
+*_p.c
+*.idb
+*.ipdb
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tmp
+*.tmp_proj
 *.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
 
-# OS generated files
-.DS_Store
+# Churn folder for temporary files
+_Tmp/
+
+# Publishing artifacts
+.publish/
+
+# Windows image file caches
 Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
+
+# Python virtual environments
+env/
+venv/
+.venv/
+
+# Npm package log
+npm-debug.log*
+
+# Temporary files from dependencies
+*.cache
+*.tmp
+
+# Visual Studio Code specific
+.history/
+*.code-workspace
